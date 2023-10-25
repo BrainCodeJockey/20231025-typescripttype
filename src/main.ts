@@ -38,7 +38,10 @@ const studentList: Student[] = [student1, student2, student3, student4];
 function printStudent(student: Student) {
     const { firstName, lastName, age, grades } = student;
 
-    const Gurke = grades.map((grade) => {
+    const nameAndAgeLength:number = `${firstName} ${lastName} (${age})`.length;
+    const Brokkoli:string = "=".repeat(nameAndAgeLength);
+
+    const Gurke:string[] = grades.map((grade) => {
         if (grade === undefined || grade === "" || (typeof grade === "number" && (grade < 1 || grade > 6))) {
             return "*";
         } else {
@@ -47,12 +50,12 @@ function printStudent(student: Student) {
     });
 
     console.log(`${firstName} ${lastName} (${age})`);
-    console.log("==============================");
+    console.log(Brokkoli);
     console.log("Noten: \n" + Gurke.join(", "));
 }
 
 function printStudentList(studentList: Student[]) {
-    studentList.forEach((student) => {
+    studentList.forEach((student:Student) => {
         printStudent(student);
         console.log("");
     });
